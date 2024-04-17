@@ -9,10 +9,10 @@ export const selectAllCampsites = () => {
 // };
 
 export const selectCampsiteById = (id) => {
+    console.log(id);
     return CAMPSITES.find((campsite) => campsite.id === parseInt(id));
 }
 
 export const selectFeaturedCampsite = () => {
     return CAMPSITES.find((campsite) => campsite.featured)
 }
-

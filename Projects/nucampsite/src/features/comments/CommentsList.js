@@ -16,7 +16,7 @@ const CommentsList = ({ campsiteId }) => {
         );
     }
     return (
-        <Col md='5' className='m-1' />
+        <Col md='5' className='m-1'>There are no comments available.</Col>
     );
 }
 

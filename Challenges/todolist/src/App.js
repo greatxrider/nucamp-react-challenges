@@ -1,10 +1,8 @@
-import { useReducer } from 'react';
+import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuid } from 'uuid';
-import AddItem from './components/AddItem';
-import ListItem from './components/ListItem';
-import './App.css';
 
-const initState = {
+
+const initialState = {
   items: [
     { id: uuid(), name: 'milk' },
     { id: uuid(), name: 'coffee' },
@@ -12,55 +10,25 @@ const initState = {
   ]
 };
 
-const listReducer = (state, action) => {
-  console.log(action);
-  console.log(state);
-  switch (action.type) {
-    case 'ADD_ITEM':
-      return {
-        ...state,
-        items: state.items.concat(
-          { id: uuid(), name: action.payload }
-        )
-      };
-    case 'REMOVE_ITEM':
-      return {
-        ...state,
-        items: state.items.filter(
-          (item) => {
-            return item.id !== action.payload.id
-          }
-        )
-      }
-    default:
-      return state;
+const todoSlice = createSlice({
+  name: 'todo',
+  initialState,
+  reducers: {
+    addItem: (state, action) => {
+      state.items.push({ id: uuid(), name: action.payload });
+    },
+    removeItem: (state, action) => {
+      state.items = state.items.filter(
+        (item) => item.id !== action.payload.id
+      );
+    }
   }
-}
+});
 
-function App() {
-  const [state, dispatch] = useReducer(listReducer, initState);
-  const { items } = state;
+console.log(todoSlice);
 
-  return (
-    <div className='app-container'>
-      <div className='input-container'>
-        <AddItem dispatch={dispatch} />
-      </div>
-      <div className="list-container">
-        {items.map((item) => {
-          return (
-            <ListItem
-              key={item.id}
-              item={item}
-              dispatch={dispatch}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-}
+export const todoReducer = todoSlice.reducer;
 
-export default App;
+export const {addItem, removeItem} = todoSlice.actions;
 
-// Original code by Chris Kubick with modifications by Minae Lee, 2022
+export const selectAllItems = (state) => 

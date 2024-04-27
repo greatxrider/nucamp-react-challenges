@@ -14,6 +14,7 @@ const todoSlice = createSlice({
     initialState,
     reducers: {
         addItem: (state, action) => {
+            console.log(action);
             state.items.push({ id: uuid(), name: action.payload });
         },
         removeItem: (state, action) => {

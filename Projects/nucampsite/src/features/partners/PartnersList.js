@@ -11,33 +11,23 @@ const PartnersList = () => {
     const isLoading = useSelector((state) => state.partners.isLoading);
     const errMsg = useSelector((state) => state.partners.errMsg);
 
-    if (isLoading) {
-        return (
-            <Row>
-                <Loading />
-            </Row>
-        );
-    }
-
-    if (errMsg) {
-        return (
-            <Row>
-                <Error errMsg={errMsg} />
-            </Row>
-        )
-    }
-
-    return (
+    return isLoading ? (
+        <Loading />
+    ) : errMsg ? (
+        <Error errMsg={errMsg} />
+    ) : (
         <Col className='mt-4'>
-            {partners.map((partner) => {
-                return (
-                    <div className='d-flex mb-5' key={partner.id}>
-                        <Partner partner={partner} />
-                    </div>
-                )
-            })}
+            <Row>
+                {partners.map((partner) => {
+                    return (
+                        <div className='d-flex mb-5' key={partner.id}>
+                            <Partner partner={partner} />
+                        </div>
+                    );
+                })}
+            </Row>
         </Col>
-    )
+    );
 }
 
 export default PartnersList;

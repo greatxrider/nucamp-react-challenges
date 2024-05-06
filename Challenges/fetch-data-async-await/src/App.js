@@ -1,12 +1,12 @@
-import './App.css';
-import { useState, useEffect } from 'react';
+import "./App.css";
+import { useState, useEffect } from "react";
 
 const request = `https://pokeapi.co/api/v2/pokemon?limit=10`;
 
 function App() {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState(null);
-  const [errMsg, setErrMsg] = useState('');
+  const [errMsg, setErrMsg] = useState("");
 
   useEffect(() => {
     const asnycFetch = async () => {
@@ -19,7 +19,7 @@ function App() {
         setTimeout(() => {
           setLoading(false);
           setData(fetchedData);
-          setErrMsg('');
+          setErrMsg("");
         }, 3000);
       } catch (err) {
         setLoading(false);
@@ -30,7 +30,7 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <h1>Loading...</h1>
+    return <h1>Loading...</h1>;
   }
 
   if (errMsg) {
@@ -53,7 +53,7 @@ function App() {
         </div>
       )}
     </div>
-  )
+  );
 }
 
 export default App;

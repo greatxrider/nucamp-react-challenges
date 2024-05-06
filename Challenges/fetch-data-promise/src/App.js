@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
 
 const request = `https://pokeapi.co/api/v2/pokemon?limit=10`;
 
 function App() {
     const [isLoading, setLoading] = useState(true); //pending
     const [data, setData] = useState(null); // fullfilled
-    const [errMsg, setErrMsg] = useState(''); // rejected
+    const [errMsg, setErrMsg] = useState(""); // rejected
 
     useEffect(() => {
         fetch(request)
@@ -21,17 +21,17 @@ function App() {
                 setTimeout(() => {
                     setLoading(false);
                     setData(fetchedData);
-                    setErrMsg('');
-                }, 3000)
+                    setErrMsg("");
+                }, 3000);
             })
             .catch((err) => {
                 setLoading(false);
                 setErrMsg(err.toString());
-            })
+            });
     }, []);
 
     if (isLoading) {
-        return <h1>Loading...</h1>
+        return <h1>Loading...</h1>;
     }
 
     if (errMsg) {
@@ -40,7 +40,7 @@ function App() {
                 <h1>whoopsie!: that was a bad request</h1>
                 <p>{errMsg}</p>
             </div>
-        )
+        );
     }
 
     return (

@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import HeartList from "./components/HeartsList";
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
     <>
       <Header />

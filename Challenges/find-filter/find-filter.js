@@ -33,8 +33,8 @@ const things = [
 ];
 
 
-// const myFavoriteThings = things.filter((thing) => thing.favorite === true)
-// console.log(myFavoriteThings);
+const myFavoriteThings = things.filter((thing) => thing.favorite === true)
+console.log(myFavoriteThings);
 
 // const thingsWithOverFiftyPoints = things.filter((thing) => thing.points > 50);
 // console.log(thingsWithOverFiftyPoints);
@@ -48,5 +48,5 @@ const things = [
 
 // const trueFeaturedId = things.filter((thing) => thing.featured);
 
-const trueFeaturedId = things.find((thing) => thing.featured);
-console.log(trueFeaturedId);
+// const trueFeaturedId = things.find((thing) => thing.featured);
+// console.log(trueFeaturedId);

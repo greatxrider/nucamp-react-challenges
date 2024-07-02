@@ -39,11 +39,13 @@ const CommentForm = ({ campsiteId }) => {
             <Modal isOpen={modalOpen}>
                 <ModalHeader toggle={() => setModalOpen(false)}>Add Comment</ModalHeader>
                 <ModalBody>
-                    <Formik initialValues={{
-                        rating: undefined,
-                        author: '',
-                        commentText: ''
-                    }} onSubmit={handleSubmit} validate={validateCommentForm}>
+                    <Formik
+                        initialValues={{
+                            rating: undefined,
+                            author: '',
+                            commentText: ''
+                        }}
+                        onSubmit={handleSubmit} validate={validateCommentForm}>
                         <Form>
                             <FormGroup>
                                 <Label htmlFor='rating'>

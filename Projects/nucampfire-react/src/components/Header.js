@@ -13,7 +13,6 @@ import UserLoginForm from '../features/user/UserLoginForm';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-
     return (
         <Navbar dark color='primary' sticky='top' expand='md'>
             <NavbarBrand className='ms-5' href='/'>

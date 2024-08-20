@@ -88,4 +88,8 @@ If you have any questions or suggestions, feel free to contact the project maint
 
 - **Name**: Jeph Mari Daligdig
 - **Email**: daligdig.jephmari@gmail.com
+<<<<<<< HEAD
 - **GitHub**: [greatxrider](https://github.com/greatxrider)
+=======
+- **GitHub**: [greatxrider](https://github.com/greatxrider)
+>>>>>>> d468c775febfe032833c5b1d2879e50632b9730b
